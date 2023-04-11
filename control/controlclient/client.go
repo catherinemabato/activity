@@ -74,9 +74,3 @@ type Client interface {
 	// the state machine.
 	UpdateEndpoints(endpoints []tailcfg.Endpoint)
 }
-
-// UserVisibleError is an error that should be shown to users.
-type UserVisibleError string
-
-func (e UserVisibleError) Error() string            { return string(e) }
-func (e UserVisibleError) UserVisibleError() string { return string(e) }
