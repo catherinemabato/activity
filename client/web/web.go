@@ -440,6 +440,8 @@ func (s *Server) serveLoginAPI(w http.ResponseWriter, r *http.Request) {
 		s.serveTailscaleUp(w, r)
 	case r.URL.Path == "/api/device-details-click" && r.Method == httpm.POST:
 		s.serveDeviceDetailsClick(w, r)
+	case r.URL.Path == "/api/update/progress" && r.Method == httpm.GET:
+		s.serveGetUpdateProgress(w, r)
 	default:
 		http.Error(w, "invalid endpoint or method", http.StatusNotFound)
 	}
@@ -636,6 +638,9 @@ func (s *Server) serveAPI(w http.ResponseWriter, r *http.Request) {
 		return
 	case path == "/device-details-click" && r.Method == httpm.POST:
 		s.serveDeviceDetailsClick(w, r)
+		return
+	case path == "/update/progress" && r.Method == httpm.GET:
+		s.serveGetUpdateProgress(w, r)
 		return
 	case strings.HasPrefix(path, "/local/"):
 		s.proxyRequestToLocalAPI(w, r)
@@ -1085,6 +1090,21 @@ func (s *Server) serveDeviceDetailsClick(w http.ResponseWriter, r *http.Request)
 	io.WriteString(w, "{}")
 }
 
+// serveGetUpdateProgress proxies the localapi endpoint that gets the progress
+// of an in-progress Tailscale update, bypassing the standard session check.
+// This is because when Tailscale restarts as part of the update, the session
+// is invalidated and the frontend can't use the standard localapi proxy for
+// this endpoint, so it never realizes that the update is finished.
+func (s *Server) serveGetUpdateProgress(w http.ResponseWriter, r *http.Request) {
+	ups, err := s.lc.GetUpdateProgress(r.Context())
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.Header().Add("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(ups)
+}
+
 // proxyRequestToLocalAPI proxies the web API request to the localapi.
 //
 // The web API request path is expected to exactly match a localapi path,
@@ -1144,7 +1164,6 @@ var localapiAllowlist = []string{
 	"/v0/prefs",
 	"/v0/update/check",
 	"/v0/update/install",
-	"/v0/update/progress",
 	"/v0/upload-client-metrics",
 }
 
