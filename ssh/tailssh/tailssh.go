@@ -30,7 +30,6 @@ import (
 	"syscall"
 	"time"
 
-	gossh "github.com/tailscale/golang-x-crypto/ssh"
 	"tailscale.com/envknob"
 	"tailscale.com/ipn/ipnlocal"
 	"tailscale.com/logtail/backoff"
@@ -39,6 +38,7 @@ import (
 	"tailscale.com/sessionrecording"
 	"tailscale.com/tailcfg"
 	"tailscale.com/tempfork/gliderlabs/ssh"
+	gossh "tailscale.com/tempfork/ssh"
 	"tailscale.com/types/key"
 	"tailscale.com/types/logger"
 	"tailscale.com/types/netmap"

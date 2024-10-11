@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	gossh "github.com/tailscale/golang-x-crypto/ssh"
+	gossh "tailscale.com/tempfork/ssh"
 )
 
 var sampleServerResponse = []byte("Hello world")

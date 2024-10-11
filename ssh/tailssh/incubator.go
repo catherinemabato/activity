@@ -33,12 +33,12 @@ import (
 	"github.com/creack/pty"
 	"github.com/pkg/sftp"
 	"github.com/u-root/u-root/pkg/termios"
-	gossh "golang.org/x/crypto/ssh"
 	"golang.org/x/sys/unix"
 	"tailscale.com/cmd/tailscaled/childproc"
 	"tailscale.com/hostinfo"
 	"tailscale.com/tailcfg"
 	"tailscale.com/tempfork/gliderlabs/ssh"
+	gossh "tailscale.com/tempfork/ssh"
 	"tailscale.com/types/logger"
 	"tailscale.com/version/distro"
 )

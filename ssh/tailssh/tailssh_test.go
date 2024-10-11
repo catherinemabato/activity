@@ -32,7 +32,6 @@ import (
 	"testing"
 	"time"
 
-	gossh "github.com/tailscale/golang-x-crypto/ssh"
 	"tailscale.com/ipn/ipnlocal"
 	"tailscale.com/ipn/store/mem"
 	"tailscale.com/net/memnet"
@@ -40,6 +39,7 @@ import (
 	"tailscale.com/sessionrecording"
 	"tailscale.com/tailcfg"
 	"tailscale.com/tempfork/gliderlabs/ssh"
+	gossh "tailscale.com/tempfork/ssh"
 	"tailscale.com/tsd"
 	"tailscale.com/tstest"
 	"tailscale.com/types/key"

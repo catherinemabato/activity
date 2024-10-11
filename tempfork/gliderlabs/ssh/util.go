@@ -5,7 +5,7 @@ import (
 	"crypto/rsa"
 	"encoding/binary"
 
-	"github.com/tailscale/golang-x-crypto/ssh"
+	"tailscale.com/tempfork/ssh"
 )
 
 func generateSigner() (ssh.Signer, error) {

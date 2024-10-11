@@ -77,7 +77,6 @@ require (
 	github.com/tailscale/certstore v0.1.1-0.20231202035212-d3fa0460f47e
 	github.com/tailscale/depaware v0.0.0-20210622194025-720c4b409502
 	github.com/tailscale/goexpect v0.0.0-20210902213824-6e8c725cea41
-	github.com/tailscale/golang-x-crypto v0.0.0-20240604161659-3fde5e568aa4
 	github.com/tailscale/goupnp v1.0.1-0.20210804011211-c64d0f06ea05
 	github.com/tailscale/hujson v0.0.0-20221223112325-20486734a56a
 	github.com/tailscale/mkctr v0.0.0-20240628074852-17ca944da6ba
@@ -95,14 +94,14 @@ require (
 	go.uber.org/zap v1.27.0
 	go4.org/mem v0.0.0-20220726221520-4f986261bf13
 	go4.org/netipx v0.0.0-20231129151722-fdeea329fbba
-	golang.org/x/crypto v0.25.0
+	golang.org/x/crypto v0.27.0
 	golang.org/x/exp v0.0.0-20240119083558-1b970713d09a
 	golang.org/x/mod v0.19.0
 	golang.org/x/net v0.27.0
 	golang.org/x/oauth2 v0.16.0
-	golang.org/x/sync v0.7.0
-	golang.org/x/sys v0.22.0
-	golang.org/x/term v0.22.0
+	golang.org/x/sync v0.8.0
+	golang.org/x/sys v0.25.0
+	golang.org/x/term v0.24.0
 	golang.org/x/time v0.5.0
 	golang.org/x/tools v0.23.0
 	golang.zx2c4.com/wintun v0.0.0-20230126152724-0fa3db229ce2
@@ -386,7 +385,7 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/exp/typeparams v0.0.0-20240314144324-c7f7c6466f7f // indirect
 	golang.org/x/image v0.18.0 // indirect
-	golang.org/x/text v0.16.0 // indirect
+	golang.org/x/text v0.18.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.4.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect

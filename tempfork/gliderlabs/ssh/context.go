@@ -6,7 +6,7 @@ import (
 	"net"
 	"sync"
 
-	gossh "github.com/tailscale/golang-x-crypto/ssh"
+	gossh "tailscale.com/tempfork/ssh"
 )
 
 // contextKey is a value for use with context.WithValue. It's used as

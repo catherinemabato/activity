@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	gossh "github.com/tailscale/golang-x-crypto/ssh"
+	gossh "tailscale.com/tempfork/ssh"
 )
 
 // ErrServerClosed is returned by the Server's Serve, ListenAndServe,
